@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\BlogPostController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,9 +14,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome',['name' => 'Samantha']);
 });
 
-Route::get('cutecat', function (){
-    return view('cutecat');
+Route::get('blogposts', function () {
+    return view('show');
 });
+/* Route::resource('blogposts', BlogPostController::class); */

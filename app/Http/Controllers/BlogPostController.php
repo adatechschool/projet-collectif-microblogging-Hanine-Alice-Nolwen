@@ -12,7 +12,7 @@ class BlogPostController extends Controller
      */
     public function index()
     {
-//
+        //
     }
 
     /**
@@ -36,10 +36,9 @@ class BlogPostController extends Controller
      */
     public function show(BlogPost $blogPost)
     {
-        return view('blogposts.show',[
-            'blogposts'=>$blogPost
+        return view('show', [
+            'blogpost' => $blogPost,
         ]);
-        
     }
 
     /**

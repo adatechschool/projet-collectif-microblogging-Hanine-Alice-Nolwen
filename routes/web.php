@@ -14,10 +14,8 @@ use App\Http\Controllers\BlogPostController;
 */
 
 Route::get('/', function () {
-    return view('welcome',['name' => 'Samantha']);
+    return view('welcome', ['name' => 'Samantha']);
 });
 
-Route::get('blogposts', function () {
-    return view('show');
-});
+Route::get('blogposts/{blogPost}', [BlogPostController::class, 'show']);
 /* Route::resource('blogposts', BlogPostController::class); */

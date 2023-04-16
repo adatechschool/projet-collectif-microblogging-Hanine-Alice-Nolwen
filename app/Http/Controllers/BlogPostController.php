@@ -12,7 +12,10 @@ class BlogPostController extends Controller
      */
     public function index()
     {
-        //
+        $blogposts = BlogPost::all();
+        return view('posts.index', [
+            'blogposts' => $blogposts,
+        ]);
     }
 
     /**
@@ -36,9 +39,7 @@ class BlogPostController extends Controller
      */
     public function show(BlogPost $blogPost)
     {
-        return view('show', [
-            'blogpost' => $blogPost,
-        ]);
+        //
     }
 
     /**

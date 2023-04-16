@@ -37,9 +37,11 @@ class BlogPostController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(BlogPost $blogPost)
+    public function show(BlogPost $blogpost)
     {
-        //
+        return view('posts.show', [
+            'blogpost' => $blogpost,
+        ]);
     }
 
     /**

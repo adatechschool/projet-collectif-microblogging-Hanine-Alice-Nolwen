@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Middleware\Authenticate;
 use App\Models\BlogPost;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class BlogPostController extends Controller
 {
@@ -12,7 +14,10 @@ class BlogPostController extends Controller
      */
     public function index()
     {
-        //
+        $blogposts = BlogPost::all();
+        return view('posts.index', [
+            'blogposts' => $blogposts,
+        ]);
     }
 
     /**
@@ -20,7 +25,7 @@ class BlogPostController extends Controller
      */
     public function create()
     {
-        //
+        return view('posts.create');
     }
 
     /**
@@ -28,16 +33,22 @@ class BlogPostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $newblogpost = BlogPost::create([
+            'title' => $request->title,
+            'content' => $request->content,
+            'image' => $request->image,
+            'user_id' => Auth::user()->id,
+        ]);
+        return redirect('blogposts/' . $newblogpost->id);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(BlogPost $blogPost)
+    public function show(BlogPost $blogpost)
     {
-        return view('show', [
-            'blogpost' => $blogPost,
+        return view('posts.show', [
+            'blogpost' => $blogpost,
         ]);
     }
 

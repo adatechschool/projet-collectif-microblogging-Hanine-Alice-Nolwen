@@ -16,7 +16,20 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
                 </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('blogposts')" :active="request()->routeIs('blogposts')">
+                         {{ __('Home') }}
+                    </x-nav-link>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('blogposts.create')" :active="request()->routeIs('blogposts.create')">
+                        {{ __('New post') }}
+                    </x-nav-link>
+                </div>
             </div>
+
+
+
 
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ml-6">

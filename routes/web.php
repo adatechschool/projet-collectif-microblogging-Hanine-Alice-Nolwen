@@ -29,10 +29,10 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('blogposts', [BlogPostController::class, 'index']);
+Route::get('/blogposts', [BlogPostController::class, 'index'])->name('blogposts');
 Route::get('blogposts/{blogpost}', [BlogPostController::class, 'show']);
-Route::get('blogposts/create/blogpost', [BlogPostController::class, 'create']);
-Route::post('/blogposts/create/blogpost', [BlogPostController::class, 'store']);
+Route::get('blogposts/create/blogpost', [BlogPostController::class, 'create'])->name('blogposts.create');
+Route::post('/blogposts/create/blogpost', [BlogPostController::class, 'store'])->name('blogposts.store');
 
 
 

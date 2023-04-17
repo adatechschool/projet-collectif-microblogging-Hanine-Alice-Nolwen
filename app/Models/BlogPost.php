@@ -12,12 +12,12 @@ class BlogPost extends Model
     protected $fillable = [
         'title',
         'image',
-        'content'
+        'content',
+        'user_id',
     ];
 
     public function user()
-{
-    return $this->belongsTo(User::class);
-}
-
+    {
+        return $this->belongsTo(User::class);
+    }
 }

@@ -36,7 +36,10 @@ class RegisteredUserController extends Controller
             'pseudo' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'picture' =>['required','file','mimes:jpg,png,gif', 'max:3072'],
         ]);
+
+        $path=$request->file('picture')->storePublicly('pictures');
 
         $user = User::create([
             'name' => $request->name,
@@ -44,6 +47,8 @@ class RegisteredUserController extends Controller
             'pseudo' => $request->pseudo,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'picture' => $path
+
         ]);
 
         event(new Registered($user));

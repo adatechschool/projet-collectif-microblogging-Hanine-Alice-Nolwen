@@ -17,7 +17,7 @@
         @csrf
         @method('patch')
         
-       <!--  <x-picture-input/> -->
+        <x-picture-input/> 
 
         <div>
             <x-input-label for="name" :value="__('Name')" />

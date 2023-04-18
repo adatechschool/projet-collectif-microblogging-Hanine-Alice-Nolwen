@@ -13,9 +13,11 @@
         @csrf
     </form>
 
-    <form method="post" action="{{ route('profile.update') }}" class="mt-6 space-y-6">
+    <form method="post" action="{{ route('profile.update') }}" enctype="multipart/form-data" class="mt-6 space-y-6">
         @csrf
         @method('patch')
+        
+       <!--  <x-picture-input/> -->
 
         <div>
             <x-input-label for="name" :value="__('Name')" />
@@ -33,6 +35,12 @@
             <x-input-label for="pseudo" :value="__('Pseudo')" />
             <x-text-input id="pseudo" name="pseudo" type="text" class="mt-1 block w-full" :value="old('pseudo', $user->pseudo)" required autofocus autocomplete="pseudo" />
             <x-input-error class="mt-2" :messages="$errors->get('pseudo')" />
+        </div>
+
+        <div>
+            <x-input-label for="biography" :value="__('Biography')" />
+            <x-text-input id="biography" name="biography" type="text" class="mt-1 block w-full" :value="old('biography', $user->biography)" />
+            <x-input-error class="mt-2" :messages="$errors->get('biography')" />
         </div>
 
         <div>

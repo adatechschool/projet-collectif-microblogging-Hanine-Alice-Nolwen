@@ -9,28 +9,28 @@
         <!-- Name -->
         <div>
             <x-input-label for="name" :value="__('Name')" />
-            <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
+            <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" value="John" />
             <x-input-error :messages="$errors->get('name')" class="mt-2" />
         </div>
 
         <!-- Surname -->
         <div>
             <x-input-label for="surname" :value="__('Surname')" />
-            <x-text-input id="surname" class="block mt-1 w-full" type="text" name="surname" :value="old('surname')" required autofocus autocomplete="surname" />
+            <x-text-input id="surname" class="block mt-1 w-full" type="text" name="surname" :value="old('surname')" required autofocus autocomplete="surname" value="Doe" />
             <x-input-error :messages="$errors->get('surname')" class="mt-2" />
         </div>
 
         <!-- Pseudo-->
         <div>
             <x-input-label for="pseudo" :value="__('Pseudo')" />
-            <x-text-input id="pseudo" class="block mt-1 w-full" type="text" name="pseudo" :value="old('pseudo')" required autofocus autocomplete="pseudo" />
+            <x-text-input id="pseudo" class="block mt-1 w-full" type="text" name="pseudo" :value="old('pseudo')" required autofocus autocomplete="pseudo" value="Jd"/>
             <x-input-error :messages="$errors->get('pseudo')" class="mt-2" />
         </div>
 
         <!-- Email Address -->
         <div class="mt-4">
             <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
+            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" value="johndoe@email.com"/>
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
 
@@ -41,7 +41,8 @@
             <x-text-input id="password" class="block mt-1 w-full"
                             type="password"
                             name="password"
-                            required autocomplete="new-password" />
+                            required autocomplete="new-password" 
+                            value="p@ssw0rd"/>
 
             <x-input-error :messages="$errors->get('password')" class="mt-2" />
         </div>
@@ -52,7 +53,8 @@
 
             <x-text-input id="password_confirmation" class="block mt-1 w-full"
                             type="password"
-                            name="password_confirmation" required autocomplete="new-password" />
+                            name="password_confirmation" required autocomplete="new-password"
+                            value="p@ssw0rd" />
 
             <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
         </div>

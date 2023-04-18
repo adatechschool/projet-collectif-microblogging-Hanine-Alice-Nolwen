@@ -14,14 +14,12 @@
 
                 </div>
                 <div class="flex">
-                    <span class="title-font font-medium text-2xl text-gray-900">User: {{$blogpost->user_id}} - </span>
-                    <span class="title-font font-medium text-2xl text-gray-900"> {{$blogpost->updated_at}}</span>
+                    <span class="title-font font-medium text-2xl text-gray-900">by : {{$blogpost->user->pseudo}} </span>
 
                 </div>
             </div>
         </div>
     </div>
 </section>
-
 
 @endsection

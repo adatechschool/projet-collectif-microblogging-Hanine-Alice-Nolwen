@@ -20,6 +20,7 @@ class BlogPostController extends Controller
         return view('posts.index', [
             'blogposts' => $blogposts,
         ]);
+ 
     }
 
     /**

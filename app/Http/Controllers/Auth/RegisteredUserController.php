@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
+use Illuminate\Support\Facades\Storage;
 
 class RegisteredUserController extends Controller
 {
@@ -34,6 +35,7 @@ class RegisteredUserController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'surname' => ['required', 'string', 'max:255'],
             'pseudo' => ['required', 'string', 'max:255'],
+            'biography' => ['string'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
             'picture' =>['required','file','mimes:jpg,png,gif', 'max:3072'],
@@ -45,6 +47,7 @@ class RegisteredUserController extends Controller
             'name' => $request->name,
             'surname' => $request->surname,
             'pseudo' => $request->pseudo,
+            'biography' => $request->biography,
             'email' => $request->email,
             'password' => Hash::make($request->password),
             'picture' => $path

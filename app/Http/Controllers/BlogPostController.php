@@ -55,7 +55,7 @@ class BlogPostController extends Controller
             
         ]);
          return redirect('blogposts/'. $newblogpost->id); 
-        /* return redirect(RouteServiceProvider::'blogposts/'. $newblogpost->id); */
+      
     }
 
     /**

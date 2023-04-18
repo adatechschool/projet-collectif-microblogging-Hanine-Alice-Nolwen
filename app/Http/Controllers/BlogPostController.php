@@ -6,9 +6,11 @@ use App\Http\Middleware\Authenticate;
 use App\Models\BlogPost;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Providers\RouteServiceProvider;
 
 class BlogPostController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      */
@@ -28,18 +30,32 @@ class BlogPostController extends Controller
         return view('posts.create');
     }
 
+  
     /**
-     * Store a newly created resource in storage.
+     * Handle an incoming registration request.
+     *
+     *
      */
+
     public function store(Request $request)
     {
+
+        $request->validate([
+            'title' => ['required', 'string', 'max:255'],
+            'picture' =>['required','file','mimes:jpg,png,gif', 'max:3072'],
+        ]);
+
+        $path=$request->file('picture')->storePublicly('pictures');
+
         $newblogpost = BlogPost::create([
             'title' => $request->title,
             'content' => $request->content,
-            'image' => $request->image,
+            'picture' => $path,
             'user_id' => Auth::user()->id,
+            
         ]);
-        return redirect('blogposts/' . $newblogpost->id);
+         return redirect('blogposts/'. $newblogpost->id); 
+        /* return redirect(RouteServiceProvider::'blogposts/'. $newblogpost->id); */
     }
 
     /**

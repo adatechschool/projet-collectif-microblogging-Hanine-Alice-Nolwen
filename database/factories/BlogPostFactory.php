@@ -19,7 +19,7 @@ class BlogPostFactory extends Factory
         return [
             'title' =>  $this->faker->sentence,
             'content' => $this->faker->paragraph,
-            'image' => $this->faker->imageUrl(640, 480, 'cats'),
+            'picture' => $this->faker->imageUrl(640, 480, 'cats'),
             'user_id' => 1
         ];
     }

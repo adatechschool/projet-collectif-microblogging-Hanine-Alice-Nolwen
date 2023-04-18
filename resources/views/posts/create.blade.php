@@ -12,7 +12,7 @@
             </div>
 
             <div class="w-full px-6 py-4 bg-white rounded shadow-md ring-1 ring-gray-900/10">
-                <form method="POST" action="">
+            <form method="POST" action="{{ route('blogposts.create') }}" enctype="multipart/form-data">
                     @csrf
                     <!-- Title -->
                     <div>
@@ -30,9 +30,11 @@
                         </label>
                         <textarea name="content" id="content" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 placeholder:text-right focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" rows="" placeholder="Write Your Post" required></textarea>
                     </div>
+                    <!-- Picture-->
 
+                    <x-picture-input/>
 
-                    <div class="flex items-center justify-center w-full pt-10">
+                   <!--  <div class="flex items-center justify-center w-full pt-10">
                         <label for="dropzone-file" class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
                             <div class="flex flex-col items-center justify-center pt-5 pb-6">
                                 <svg aria-hidden="true" class="w-10 h-10 mb-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -43,7 +45,7 @@
                             </div>
                             <input id="dropzone-file" type="file" class="hidden" />
                         </label>
-                    </div>
+                    </div> -->
 
 
                     <div class="flex items-center justify-start mt-4 gap-x-2">

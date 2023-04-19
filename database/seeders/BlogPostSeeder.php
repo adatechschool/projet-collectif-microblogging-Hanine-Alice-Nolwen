@@ -17,7 +17,7 @@ class BlogPostSeeder extends Seeder
         \App\Models\BlogPost::factory()->create([
             'title' => 'Test title',
             'content' => 'Test content',
-            'image' => 'https://test.com',
+            'picture' => 'https://test.com',
         ]);
     }
 }

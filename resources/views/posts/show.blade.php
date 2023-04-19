@@ -4,8 +4,10 @@
 
 <section class="text-[#222222]body-font overflow-hidden bg-gradient-to-b from-custom-600 from-40% to-custom-800">
     <div class="container px-5 py-24 mx-auto">
+
         <div class="lg:w-4/5 mx-auto flex flex-wrap bg-[#F2F2F2] rounded-lg">
-            <img alt="blogpost_img" class="lg:w-1/2 w-full object-cover object-center rounded border border-gray-200" src="{{$blogpost->image}}">
+            <img alt="blogpost_img" class="lg:w-1/2 w-full object-cover object-center rounded border border-gray-200" src="{{asset($blogpost->picture)}}">
+
             <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
                 <h2 class="text-sm title-font text-gray-500 tracking-widest">Title</h2>
                 <h1 class="text-gray-900 text-3xl title-font font-medium mb-1">{{$blogpost->title}}</h1>
@@ -14,8 +16,7 @@
 
                 </div>
                 <div class="flex">
-                    <span class="title-font font-medium text-2xl text-gray-900">User: {{$blogpost->user_id}} - </span>
-                    <span class="title-font font-medium text-2xl text-gray-900"> {{$blogpost->updated_at}}</span>
+                    <span class="title-font font-medium text-2xl text-gray-900">by : {{$blogpost->user->pseudo}} </span>
 
                 </div>
             </div>

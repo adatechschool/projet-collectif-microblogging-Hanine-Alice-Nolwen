@@ -1,28 +1,39 @@
-<nav x-data="{ open: false }" class="bg-white dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700">
+
+<nav x-data="{ open: false }" class="border-b border-gray-100 dark:border-gray-700">
     <!-- Primary Navigation Menu -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="relative font-abril text-[#F2F2F2]">
+       <div class="flex flex-col gap-4 h-[500px] items-center justify-center bg-cover" style="background-image: url('../img/xavier-coiffic-EYVQ5dM4dKg-unsplash.jpg');">
+         <div class="mb-16 flex flex-col items-center">
+           <img class="flex items-center justify-center mb-4" src="../img/logowhite.png" alt="" width="90px">
+           <h1 class="text-[7rem] flex items-center justify-center">Travel & Explore</h1>
+         </div>
+       </div>
+    </div>
+    
+    <div class="bg-custom-600 shadow-xl w-full mx-auto py-4 px-4 sm:px-6 lg:px-8 font-abril">
         <div class="flex justify-between h-16">
             <div class="flex">
-                <!-- Logo -->
+                <img src="../img/logowhite.png" alt="">
+               
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
-                        <x-application-logo class="block h-9 w-auto fill-current text-gray-800 dark:text-gray-200" />
+                        <img src="" class="block h-10 w-auto fill-current text-gray-800 dark:text-gray-200" />
                     </a>
                 </div>
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')" style="color : #F2F2F2;">
                         {{ __('Dashboard') }}
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('blogposts')" :active="request()->routeIs('blogposts')">
+                    <x-nav-link :href="route('blogposts')" :active="request()->routeIs('blogposts')" style="color : #F2F2F2;">
                          {{ __('Home') }}
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('blogposts.create')" :active="request()->routeIs('blogposts.create')">
+                    <x-nav-link :href="route('blogposts.create')" :active="request()->routeIs('blogposts.create')" style="color : #F2F2F2;">
                         {{ __('New post') }}
                     </x-nav-link>
                 </div>

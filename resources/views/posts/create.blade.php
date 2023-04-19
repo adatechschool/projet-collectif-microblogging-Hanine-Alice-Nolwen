@@ -2,12 +2,13 @@
 
 @section('content')
 
+
 <div>
-    <div class="flex flex-col items-center min-h-screen pt-6 bg-gray-100 sm:justify-center sm:pt-0">
-        <div class="w-full px-16 py-20 mt-6 overflow-hidden bg-white rounded-lg lg:max-w-4xl">
+    <div class="flex flex-col items-center min-h-screen pt-6 bg-[gray-100] sm:justify-center sm:pt-0">
+        <div class="w-full px-16 py-20 mt-6 overflow-hidden bg-white rounded-lg lg:max-w-4xl" style="width:50%; ">
             <div class="mb-4">
                 <h1 class="font-serif text-3xl font-bold decoration-gray-400">
-                    Create New Post
+                    Create New Post 
                 </h1>
             </div>
 

@@ -7,6 +7,8 @@ use App\Models\BlogPost;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Providers\RouteServiceProvider;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Storage;
 
 class BlogPostController extends Controller
 {
@@ -20,7 +22,6 @@ class BlogPostController extends Controller
         return view('posts.index', [
             'blogposts' => $blogposts,
         ]);
- 
     }
 
     /**
@@ -31,7 +32,7 @@ class BlogPostController extends Controller
         return view('posts.create');
     }
 
-  
+
     /**
      * Handle an incoming registration request.
      *
@@ -43,20 +44,19 @@ class BlogPostController extends Controller
 
         $request->validate([
             'title' => ['required', 'string', 'max:255'],
-            'picture' =>['required','file','mimes:jpg,png,gif', 'max:3072'],
+            'picture' => ['required', 'file', 'mimes:jpg,png,gif', 'max:3072'],
         ]);
 
-        $path=$request->file('picture')->storePublicly('pictures');
+        $path = $request->file('picture')->storePublicly('pictures');
 
         $newblogpost = BlogPost::create([
             'title' => $request->title,
             'content' => $request->content,
             'picture' => $path,
             'user_id' => Auth::user()->id,
-            
+
         ]);
-         return redirect('blogposts/'. $newblogpost->id); 
-      
+        return redirect('blogposts/' . $newblogpost->id);
     }
 
     /**
@@ -72,24 +72,37 @@ class BlogPostController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(BlogPost $blogPost)
+    public function edit(BlogPost $blogpost)
     {
-        //
+        return view('posts.edit', [
+            'blogpost' => $blogpost,
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, BlogPost $blogPost)
+    public function update(Request $request, BlogPost $blogpost)
     {
-        //
+
+        $request->validate([
+            'title' => ['string', 'max:255'],
+            "content" => ['string'],
+        ]);
+        $blogpost->update($request->all());
+        // dd($blogpost);
+
+
+        return redirect('blogposts/' . $blogpost->id);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(BlogPost $blogPost)
+    public function destroy(BlogPost $blogpost)
     {
-        //
+        $blogpost->delete();
+
+        return redirect('/blogposts');
     }
 }

@@ -90,10 +90,10 @@ class BlogPostController extends Controller
             "content" => ['string'],
         ]);
         $blogpost->update($request->all());
-        dd($blogpost);
+        // dd($blogpost);
 
 
-        return Redirect::route('blogpost.show');
+        return redirect('blogposts/' . $blogpost->id);
     }
 
     /**

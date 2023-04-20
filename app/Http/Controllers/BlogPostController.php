@@ -99,8 +99,10 @@ class BlogPostController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(BlogPost $blogPost)
+    public function destroy(BlogPost $blogpost)
     {
-        //
+        $blogpost->delete();
+
+        return redirect('/blogposts');
     }
 }

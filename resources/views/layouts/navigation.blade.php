@@ -13,7 +13,7 @@
     <div class="bg-custom-600 shadow-xl w-full mx-auto py-4 px-4 sm:px-6 lg:px-8 font-abril">
         <div class="flex justify-between h-16">
             <div class="flex">
-                <img src="../img/logowhite.png" alt="">
+                <img src="../img/logowhite.png" alt="" class="" width="7%">
                
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
@@ -28,7 +28,7 @@
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('blogposts')" :active="request()->routeIs('blogposts')" style="color : #F2F2F2;">
+                    <x-nav-link :href="route('blogposts')" :active="request()->routeIs('blogposts')" style="color : #F2F2F2; font : 'abril';">
                          {{ __('Home') }}
                     </x-nav-link>
                 </div>

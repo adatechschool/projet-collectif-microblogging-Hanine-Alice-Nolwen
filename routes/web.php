@@ -30,9 +30,14 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('/blogposts', [BlogPostController::class, 'index'])->name('blogposts');
-Route::get('blogposts/{blogpost}', [BlogPostController::class, 'show']);
+Route::get('blogposts/{blogpost}', [BlogPostController::class, 'show'])->name('blogpost.show');;
 Route::get('blogposts/create/blogpost', [BlogPostController::class, 'create'])->name('blogposts.create');
 Route::post('/blogposts/create/blogpost', [BlogPostController::class, 'store'])->name('blogposts.store');
+Route::get('/blogposts/{blogpost}/edit', [BlogPostController::class, 'edit'])->name('blogpost.edit'); //shows edit post form
+Route::patch('/blogposts/{blogpost}/edit', [BlogPostController::class, 'update'])->name('blogpost.update'); //commits edited post to the database 
+Route::delete('/blogposts/{blogpost}', [BlogPostController::class, 'destroy']); //deletes post from the database
+
+
 
 
 
